@@ -12,7 +12,7 @@ import org.springframework.security.web.SecurityFilterChain;
 //Essa nova verão o spring security trabalho com componestes de configuraçoes
 
 @Configuration
-@EnableGlobalMethodSecurity()
+@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfigV2 {
 
     @Bean
@@ -22,9 +22,9 @@ public class WebSecurityConfigV2 {
                 .and()
                 .authorizeHttpRequests()
 
-                .antMatchers(HttpMethod.GET, "/parking-spot/**").permitAll()
-                .antMatchers(HttpMethod.POST, "/parking-spot").hasRole("USER")
-                .antMatchers(HttpMethod.DELETE, "/parking-spot/**").hasRole("ADMIN")
+//                .antMatchers(HttpMethod.GET, "/parking-spot/**").permitAll()
+//                .antMatchers(HttpMethod.POST, "/parking-spot").hasRole("USER")
+//                .antMatchers(HttpMethod.DELETE, "/parking-spot/**").hasRole("ADMIN")
 
                 .anyRequest()
                 .authenticated()
